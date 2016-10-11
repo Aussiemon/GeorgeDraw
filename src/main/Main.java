@@ -26,7 +26,7 @@ public class Main {
 			@Override
 			public void mouseClicked(MouseEvent event) {
 				rendererPanel.clearShapes();
-                pane.repaint();
+                rendererPanel.repaint();
 			}
 		});
 		pane.add(clearButton);
@@ -113,7 +113,7 @@ public class Main {
 				rendererPanel.removeShape(activeShape);
 				activeShape = currentFactory.newShape();
 				rendererPanel.addShape(activeShape);
-                pane.repaint();
+                rendererPanel.repaint();
 			}
 		});
 		pane.add(rendererPanel, BorderLayout.CENTER);
