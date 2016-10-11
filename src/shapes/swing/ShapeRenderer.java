@@ -34,8 +34,8 @@ public class ShapeRenderer {
 	}
 
 	public void render(Graphics graphics) {
+		graphics.setColor(shapeColorToAwtColor(shape.getStrokeColor()));
 		for (PointPair points : shape.getPointPairs()) {
-			graphics.setColor(shapeColorToAwtColor(shape.getStrokeColor()));
 			graphics.drawLine(points.start.x, points.start.y,
 					points.end.x, points.end.y);
 		}

@@ -4,7 +4,6 @@ import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.GridLayout;
 import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
@@ -35,6 +34,7 @@ public class Main {
 			@Override
 			public void mouseClicked(MouseEvent event) {
 				rendererPanel.clearShapes();
+                pane.repaint();
 			}
 		});
 		pane.add(clearButton);
@@ -45,13 +45,10 @@ public class Main {
 		for (ShapeColor color : ShapeColor.values()) {
 			colorMenu.addItem(color);
 		}
-		
-		colorMenu.addItemListener(new ItemListener() {
-			@Override
-			public void itemStateChanged(ItemEvent event) {
-				if (event.getStateChange() == ItemEvent.SELECTED) {
-					currentStrokeColor = (ShapeColor) event.getItem();
-				}
+
+		colorMenu.addItemListener((ItemEvent event) -> {
+			if (event.getStateChange() == ItemEvent.SELECTED) {
+				currentStrokeColor = (ShapeColor) event.getItem();
 			}
 		});
 		
@@ -79,14 +76,11 @@ public class Main {
 		
 		currentFactory = toolMenu.getItemAt(0);
 		
-		toolMenu.addItemListener(new ItemListener() {
-			@Override
-			public void itemStateChanged(ItemEvent event) {
+		toolMenu.addItemListener((ItemEvent event) -> {
 				if (event.getStateChange() == ItemEvent.SELECTED) {
 					currentFactory = (ShapeFactory) event.getItem();
 				}
-			}
-		});
+			});
 		
 		pane.add(toolMenu);
 	}
@@ -112,7 +106,7 @@ public class Main {
 				activeShape = currentFactory.newShape();
 				rendererPanel.addShape(activeShape);
 			}
-			
+
 			@Override
 			public void mouseReleased(MouseEvent event) {
 				startPoint = null;
@@ -127,6 +121,7 @@ public class Main {
 				rendererPanel.removeShape(activeShape);
 				activeShape = currentFactory.newShape();
 				rendererPanel.addShape(activeShape);
+                pane.repaint();
 			}
 		});
 		pane.add(rendererPanel, BorderLayout.CENTER);

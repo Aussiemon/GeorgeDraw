@@ -15,7 +15,6 @@ public class RendererPanel extends JPanel {
 
 	public void addShape(Shape shape) {
 		renderers.add(new ShapeRenderer(shape));
-		repaint();
 	}
 	
 	public void removeShape(Shape shape) {
@@ -30,12 +29,10 @@ public class RendererPanel extends JPanel {
 		if (targetRenderer != null) {
 			renderers.remove(targetRenderer);
 		}
-		repaint();
 	}
 	
 	public void clearShapes() {
 		renderers.clear();
-		repaint();
 	}
 	
 	public void paintComponent(Graphics graphics) {
