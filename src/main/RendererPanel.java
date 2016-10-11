@@ -1,12 +1,11 @@
 package main;
 
-import java.awt.Graphics;
-import java.util.ArrayList;
-
-import javax.swing.JPanel;
-
 import shapes.Shape;
 import shapes.swing.ShapeRenderer;
+
+import javax.swing.*;
+import java.awt.*;
+import java.util.ArrayList;
 
 public class RendererPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
@@ -36,6 +35,7 @@ public class RendererPanel extends JPanel {
 	}
 	
 	public void paintComponent(Graphics graphics) {
+        super.paintComponent(graphics);
 		for (ShapeRenderer renderer : renderers) {
 			renderer.render(graphics);
 		}

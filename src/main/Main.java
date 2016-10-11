@@ -1,23 +1,15 @@
 package main;
 
-import java.awt.BorderLayout;
-import java.awt.Container;
-import java.awt.GridLayout;
-import java.awt.event.ItemEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseMotionAdapter;
-
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-
 import shapes.Point;
 import shapes.Rectangle;
 import shapes.Shape;
-import shapes.ShapeColor;
-import shapes.Square;
+import shapes.*;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ItemEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class Main {
 	private static RendererPanel rendererPanel;
@@ -114,7 +106,7 @@ public class Main {
 				activeShape = null;
 			}
 		});
-		rendererPanel.addMouseMotionListener(new MouseMotionAdapter() {
+		rendererPanel.addMouseMotionListener(new MouseAdapter() {
 			@Override
 			public void mouseDragged(MouseEvent event) {
 				endPoint = new Point(event.getX(), event.getY());
@@ -128,14 +120,17 @@ public class Main {
 	}
 
 	public static void main(String[] args) {
-		JFrame frame = new JFrame("George Draw");
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        SwingUtilities.invokeLater(() -> {
+                JFrame frame = new JFrame("George Draw");
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		setupButtonBar(frame.getContentPane());
-		setupDrawingArea(frame.getContentPane());
-		
-		frame.pack();
-		frame.setSize(400, 400);
-		frame.setVisible(true);
+                setupButtonBar(frame.getContentPane());
+                setupDrawingArea(frame.getContentPane());
+
+                frame.pack();
+                frame.setSize(400, 400);
+                frame.setVisible(true);
+            }
+        );
 	}
 }
