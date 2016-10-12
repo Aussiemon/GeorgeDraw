@@ -8,36 +8,36 @@ import shapes.Shape;
 import shapes.ShapeColor;
 
 public class ShapeRenderer {
-	public static final Color shapeColorToAwtColor(ShapeColor color) {
-		switch (color) {
-		case BLACK:
-			return Color.BLACK;
-		case RED:
-			return Color.RED;
-		case GREEN:
-			return Color.GREEN;
-		case BLUE:
-			return Color.BLUE;
-		default:
-			return Color.BLACK;
-		}
-	}
-	
-	private final Shape shape;
-	
-	public ShapeRenderer(Shape shape) {
-		this.shape = shape;
-	}
+    public static final Color shapeColorToAwtColor(ShapeColor color) {
+        switch (color) {
+            case BLACK:
+                return Color.BLACK;
+            case RED:
+                return Color.RED;
+            case GREEN:
+                return Color.GREEN;
+            case BLUE:
+                return Color.BLUE;
+            default:
+                return Color.BLACK;
+        }
+    }
 
-	public Shape getShape() {
-		return shape;
-	}
+    private final Shape shape;
 
-	public void render(Graphics graphics) {
-		graphics.setColor(shapeColorToAwtColor(shape.getStrokeColor()));
-		for (PointPair points : shape.getPointPairs()) {
-			graphics.drawLine(points.start.x, points.start.y,
-					points.end.x, points.end.y);
-		}
-	}
+    public ShapeRenderer(Shape shape) {
+        this.shape = shape;
+    }
+
+    public Shape getShape() {
+        return shape;
+    }
+
+    public void render(Graphics graphics) {
+        graphics.setColor(shapeColorToAwtColor(shape.getStrokeColor()));
+        for (PointPair points : shape.getPointPairs()) {
+            graphics.drawLine(points.start.x, points.start.y,
+                    points.end.x, points.end.y);
+        }
+    }
 }
