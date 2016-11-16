@@ -22,9 +22,11 @@ public abstract class Shape {
 
     public PointPair[] getPointPairs() {
         Point[] points = getPoints();
-        PointPair[] pairs = new PointPair[points.length];
 
-        for (int i = 0; i < points.length; i++) {
+        int boundary = isClosed() ? points.length : points.length - 1;
+        PointPair[] pairs = new PointPair[boundary];
+
+        for (int i = 0; i < boundary; i++) {
             // We set j to i+1 (the next point) except when i references
             // the last element in the array, then we wrap around and
             // set j so that it references the first element in the array.
@@ -38,6 +40,10 @@ public abstract class Shape {
 
     public ShapeColor getStrokeColor() {
         return strokeColor;
+    }
+
+    public boolean isClosed() {
+        return true;
     }
 
     // ----------------

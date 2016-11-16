@@ -1,8 +1,8 @@
 package shapes;
 
 public class LineSegment extends Shape {
-    private Point startPoint;
-    private Point endPoint;
+    protected Point startPoint;
+    protected Point endPoint;
 
     public LineSegment(Point startPoint, Point endPoint,
                        ShapeColor fillColor, ShapeColor strokeColor) {

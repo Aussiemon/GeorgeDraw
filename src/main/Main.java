@@ -65,6 +65,13 @@ public class Main {
                         currentStrokeColor);
             }
         });
+        toolMenu.addItem(new ShapeFactory("Koch Segment") {
+            @Override
+            public KochSegment newShape() {
+                return new KochSegment(startPoint, endPoint, currentFillColor,
+                        currentStrokeColor);
+            }
+        });
 
         currentFactory = toolMenu.getItemAt(0);
 
