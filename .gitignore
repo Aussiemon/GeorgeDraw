@@ -1,6 +1,13 @@
 bin/
 dist/
+build/
 out/
+.gradle/
+
+.idea/
+*.iml
+*.ipr
+*.iws
 
 *.swp
 *~

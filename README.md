@@ -3,6 +3,10 @@
 A simple drawing program written in Java using the Swing GUI
 framework.
 
-To build, use Ant... `ant dist`. Then run with the Java
-binary... `java -jar dist/GeorgeDraw.jar`.
+To build, use Gradle.
+
+  * Run: `gradle run`
+  * Create a JAR: `gradle jar` (look in `out/` for the JAR file)
+  * Run the tests: `gradle test`
+  * Create an IntelliJ project: `gradle idea`
 
