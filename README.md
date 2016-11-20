@@ -9,4 +9,5 @@ To build, use Gradle.
   * Create a JAR: `gradle jar` (look in `build/lib/` for the JAR file)
   * Run the tests: `gradle test`
   * Create an IntelliJ project: `gradle idea`
+  * Create an Eclipse project: `gradle eclipse`
 
