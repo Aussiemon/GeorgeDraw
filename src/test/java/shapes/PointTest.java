@@ -5,13 +5,13 @@ import org.junit.*;
 import static org.junit.Assert.*;
 
 public class PointTest {
-    Point origin;
-    Point pointQ1;
-    Point pointQ2;
-    Point pointQ3;
-    Point pointQ4;
+    private Point origin;
+    private Point pointQ1;
+    private Point pointQ2;
+    private Point pointQ3;
+    private Point pointQ4;
 
-    final double epsilon = 0.01;
+    private final double epsilon = 0.01;
 
     @Before
     public void setUp() {
