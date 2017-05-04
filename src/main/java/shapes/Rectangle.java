@@ -17,12 +17,11 @@ public class Rectangle extends Shape {
 
     @Override
     public Point[] getPoints() {
-        Point[] points = {
+        return new Point[]{
                 topLeft,
                 new Point(bottomRight.x, topLeft.y),
                 bottomRight,
                 new Point(topLeft.x, bottomRight.y)
         };
-        return points;
     }
 }

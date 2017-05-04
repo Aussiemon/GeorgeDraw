@@ -23,7 +23,7 @@ public class KochSegment extends LineSegment {
         return false;
     }
 
-    Point[] getPoints(Point start, Point end, int depth) {
+    private Point[] getPoints(Point start, Point end, int depth) {
         if (depth < 0) {
             throw new IllegalArgumentException("Depth must be >= 0.");
         }
