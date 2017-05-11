@@ -79,6 +79,13 @@ public class Main {
                         currentFillColor, currentStrokeColor);
             }
         });
+        toolMenu.addItem(new ShapeFactory("Circle") {
+            @Override
+            public Circle newShape() {
+                return new Circle(startPoint, endPoint,
+                        currentFillColor, currentStrokeColor);
+            }
+        });
         toolMenu.addItem(new ShapeFactory("Koch Segment") {
             @Override
             public KochSegment newShape() {
