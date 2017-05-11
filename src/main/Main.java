@@ -65,6 +65,20 @@ public class Main {
                         currentStrokeColor);
             }
         });
+        toolMenu.addItem(new ShapeFactory("Triangle") {
+            @Override
+            public Triangle newShape() {
+                return new Triangle(startPoint, endPoint,
+                        currentFillColor, currentStrokeColor);
+            }
+        });
+        toolMenu.addItem(new ShapeFactory("Right Triangle") {
+            @Override
+            public RightTriangle newShape() {
+                return new RightTriangle(startPoint, endPoint,
+                        currentFillColor, currentStrokeColor);
+            }
+        });
         toolMenu.addItem(new ShapeFactory("Koch Segment") {
             @Override
             public KochSegment newShape() {
